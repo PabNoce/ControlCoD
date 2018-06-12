@@ -16,7 +16,7 @@ import org.openide.util.NbBundle.Messages;
         id = "com.pablo.controlcod.Empaquetado"
 )
 @ActionRegistration(
-        iconBase = "com/pablo/controlcod/paque.png",
+        iconBase = "com/pablo/controlcod/imagen.png",
         displayName = "#CTL_Empaquetado"
 )
 @ActionReferences({
@@ -32,15 +32,15 @@ public final class Empaquetado implements ActionListener {
 
         try {
             //Pedimos el nombre para el .jar
-            String jar = JOptionPane.showInputDialog("Nome de tu jar: ", e);
+            String jar = JOptionPane.showInputDialog("Jar: ", e);
             //Pedimos en nombre del main
-            String mainclass = JOptionPane.showInputDialog("Nombre de tu Main Class: ");
+            String main = JOptionPane.showInputDialog("Main Class: ");
             //Pedimos un nombre
             String nombre = JOptionPane.showInputDialog("Nombre: ");
             //Pedimos el nombre de la app
-            String nombreapp = JOptionPane.showInputDialog("Nombre de la App ");
+            String app = JOptionPane.showInputDialog("App ");
             //Montamos el comando
-            String[] cmd = {"javapackager ", "-deploy ", "-native ", "-outdir ", "sample ", "srcfiles ", jar, "-appclass ", mainclass, "-name ", nombre, "-title ", nombreapp};
+            String[] cmd = {"javapackager ", "-deploy ", "-native ", "-outdir ", "sample ", "srcfiles ", jar, "-appclass ", main, "-name ", nombre, "-title ", app};
             //lo lanzamos en la terminal
             Process process = Runtime.getRuntime().exec(cmd);
             InputStream inputstream = process.getInputStream();
